@@ -8,6 +8,7 @@ from pprint import pprint
 import sys, getopt
 import graph_file_creator as gfc
 import doc_gen
+import os
 
 # Los niveles son creados para poder separar los distintos nodos y routers en distintos puntos del eje x
 # Si el nivel esta vacio se ignora. La idea es tener ya de base un orden, donde en el 0 van siempre los nodos 
@@ -154,6 +155,7 @@ if __name__ == "__main__":
     # Creo el fichero para ser enviado al programa que genera el .png del despliegue
     gfc.graph_file_gen(dict_nodes, dict_networks, levels)
 
+    os.system('cat graph_creator.yaml | curl -v -X POST -H "Content-Type: text/yaml"  --data-binary @- http://localhost:3030 > images/deployment_graph.png')
     # Creo documentación con información sobre el despliegue
 
     doc_gen.doc_generator(dict_nodes, dict_networks)

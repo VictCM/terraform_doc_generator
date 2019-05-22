@@ -79,7 +79,7 @@ diagram:
   fill: "linen"
   rows: '''+ str(size_y)  + ''' #7
   columns: ''' + str(size_x) + ''' #5
-  gridLines: false
+  gridLines: true
   gridPaddingInner: .2
   groupPadding: .8
 title:
