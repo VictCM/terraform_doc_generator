@@ -19,6 +19,10 @@ def calculate_size():
     for i in range(len(levels)):
         if len(levels[i]):
             size_x += 2
+    
+    # This is for the case we have too less nodes and networks, to avoid tags being write up on another
+    if num_nodes < 5 or num_networks < 5:
+        size_x = size_x * 2
 
 
 

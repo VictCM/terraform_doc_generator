@@ -2,7 +2,7 @@
 diagram:
   fill: "linen"
   rows: 3 #7
-  columns: 5 #5
+  columns: 10 #5
   gridLines: false
   gridPaddingInner: .2
   groupPadding: .8
@@ -39,9 +39,9 @@ icons:
   k8s-master: {<<: *servers, x: 0, y: 0}
   k8s-node-0: {<<: *servers, x: 0, y: 1}
   k8s-node-1: {<<: *servers, x: 0, y: 2}
-  cluster2-network-NE: {<<: *cisco, x: 2, y: 0, icon: "router"}
-  public1-router: {<<: *cisco, x: 4, y: 1, icon: "router"}
-  cluster-network-NE: {<<: *cisco, x: 2, y: 1, icon: "router"}
+  public1-router: {<<: *cisco, x: 9, y: 1, icon: "router"}
+  cluster2-network-NE: {<<: *cisco, x: 5, y: 0, icon: "router"}
+  cluster-network-NE: {<<: *cisco, x: 5, y: 1, icon: "router"}
 
 connection: &connection
   stroke: "black"
