@@ -67,6 +67,7 @@ def graph_file_gen(nodes, networks, all_levels):
     
     calculate_size()
     if os.path.exists("graph_creator.yaml"):
+        print("existe el archivo")
         os.remove("graph_creator.yaml")
     f= open("graph_creator.yaml","w+") # Creo el fichero
 
