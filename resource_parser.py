@@ -155,6 +155,8 @@ if __name__ == "__main__":
     # Creo el fichero para ser enviado al programa que genera el .png del despliegue
     gfc.graph_file_gen(dict_nodes, dict_networks, levels)
 
+    if os.path.exists("images/deployment_graph.png"):
+        os.remove("images/deployment_graph.png")
     os.system('cat graph_creator.yaml | curl -v -X POST -H "Content-Type: text/yaml"  --data-binary @- http://localhost:3030 > images/deployment_graph.png')
     os.system('sleep 2')
     # Creo documentación con información sobre el despliegue

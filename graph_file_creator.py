@@ -77,8 +77,8 @@ def graph_file_gen(nodes, networks, all_levels):
     template= '''
 diagram:
   fill: "linen"
-  rows: '''+ str(size_y)  + ''' #7
-  columns: ''' + str(size_x + 1) + ''' #5
+  rows: '''+ str(size_y)  + ''' 
+  columns: ''' + str(size_x + 1) + '''
   gridLines: true
   gridPaddingInner: .2
   groupPadding: .8
