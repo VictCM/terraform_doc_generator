@@ -35,9 +35,9 @@ servers: &servers
   icon: "webserver"
 icons:
   # Aqui tengo que añadir los nodos. Algoritmo basico creado para que ordene según el número de nodos y nets
-  k8s-master: {<<: *servers, x: 0, y: 0}
-  k8s-node-0: {<<: *servers, x: 0, y: 1}
-  k8s-node-1: {<<: *servers, x: 0, y: 2}
+  k8s-node-1: {<<: *servers, x: 0, y: 0}
+  k8s-master: {<<: *servers, x: 0, y: 1}
+  k8s-node-0: {<<: *servers, x: 0, y: 2}
   cluster2-network-NE: {<<: *cisco, x: 2, y: 0, icon: "router"}
   public1-router: {<<: *cisco, x: 4, y: 1, icon: "router"}
   cluster-network-NE: {<<: *cisco, x: 2, y: 1, icon: "router"}
@@ -48,9 +48,9 @@ connection: &connection
   color: "black"
 connections:
   # Aqui añado las distintas conexiones. Por ahora solo van de nodos a routers intermedios y de estos al exterior
+  - { <<: *connection, endpoints: ["k8s-node-1:192.168.187.20", "cluster-network-NE"] }
   - { <<: *connection, endpoints: ["k8s-master:192.168.166.3", "cluster2-network-NE"] }
   - { <<: *connection, endpoints: ["k8s-master:192.168.187.4", "cluster-network-NE"] }
   - { <<: *connection, endpoints: ["k8s-node-0:192.168.187.28", "cluster-network-NE"] }
-  - { <<: *connection, endpoints: ["k8s-node-1:192.168.187.20", "cluster-network-NE"] }
   - { <<: *connection, endpoints: ["cluster2-network-NE", "public1-router"] }
   - { <<: *connection, endpoints: ["cluster-network-NE", "public1-router"] }

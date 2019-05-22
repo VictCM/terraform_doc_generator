@@ -1,4 +1,4 @@
-
+import os
 
 
 # Según el número de nodos y redes el dibujo será dimensionado de una forma u otra
@@ -66,6 +66,8 @@ def graph_file_gen(nodes, networks, all_levels):
     levels = all_levels
     
     calculate_size()
+    if os.path.exists("graph_creator.yaml"):
+        os.remove("graph_creator.yaml")
     f= open("graph_creator.yaml","w+") # Creo el fichero
 
     template= '''
