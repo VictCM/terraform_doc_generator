@@ -15,10 +15,10 @@ def calculate_size():
     
     # Ahora, del eje x
     global size_x
-    size_x = -1 
+    size_x = 0
     for i in range(len(levels)):
         if len(levels[i]):
-            size_x += 2
+            size_x += 1
     
     # This is for the case we have too less nodes and networks, to avoid tags being write up on another
     if num_nodes < 5 or num_networks < 5:
