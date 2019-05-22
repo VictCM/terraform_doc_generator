@@ -42,7 +42,7 @@ def insert_icons():
             icons += '  ' + i + '-NE: {<<: *cisco, x: ' + str(x) + ', y: ' + str(y) + ', icon: "router"}\n'
             y += 1
         else:
-            icons += '  public1-router: {<<: *cisco, x: ' + str(size_x - 1) + ', y: ' + str(int(size_y/2)) + ', icon: "router"}\n'
+            icons += '  public1-router: {<<: *cisco, x: ' + str(size_x) + ', y: ' + str(int(size_y/2)) + ', icon: "router"}\n'
 
     return icons
 

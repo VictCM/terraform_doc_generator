@@ -41,7 +41,7 @@ icons:
   k8s-master: {<<: *servers, x: 0, y: 2}
   cluster-network-NE: {<<: *cisco, x: 3, y: 0, icon: "router"}
   cluster2-network-NE: {<<: *cisco, x: 3, y: 1, icon: "router"}
-  public1-router: {<<: *cisco, x: 5, y: 1, icon: "router"}
+  public1-router: {<<: *cisco, x: 6, y: 1, icon: "router"}
 
 connection: &connection
   stroke: "black"
