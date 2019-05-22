@@ -64,7 +64,7 @@ def check_network_resource(network_name):
         num_networks += 1
         levels[4].append(network_name)
         dict_networks[network_name] = {} # Creo dict
-        dict_networks[network_name]["switch"] = ""
+        dict_networks[network_name]["network_element"] = ""
 
 def compute_instance():
     print(data["modules"][0]["resources"][glob_specific_resource]["type"]) # Acceso al tipo de cada recurso

@@ -29,13 +29,13 @@ def insert_icons():
     y = 2
     for i in dict_nodes.keys():
         icons += '  ' + i + ': {<<: *servers, x: ' + str(x) + ', y: ' + str(y) + '}\n'
-        y += 2
-    # Creo un switch para conectar cada red
+        y += 1
+    # Creo un network element para conectar cada red
     x = 2
     y = 0
     for i in dict_networks.keys():
         if i != "public1":
-            icons += '  ' + i + '-switch: {<<: *cisco, x: ' + str(x) + ', y: ' + str(y) + ', icon: "nexus5000"}\n'
+            icons += '  ' + i + '-NE: {<<: *cisco, x: ' + str(x) + ', y: ' + str(y) + ', icon: "router"}\n'
             y += 1
         else:
             icons += '  public1-router: {<<: *cisco, x: ' + str(size_x - 1) + ', y: ' + str(int(size_y/2)) + ', icon: "router"}\n'
@@ -48,12 +48,12 @@ def insert_connections():
     for i in dict_nodes.keys():
         for j in dict_nodes[i].keys():
             # Tambien habría forma de diferenciar ifaces
-            connections += '  - { <<: *connection, endpoints: ["'+ i + ':' + dict_nodes[i][j] + '", "' + j +'-switch"] }\n'
+            connections += '  - { <<: *connection, endpoints: ["'+ i + ':' + dict_nodes[i][j] + '", "' + j +'-NE"] }\n'
 
-    # Conecto todos los switches a la red publica (esto podría no ser asi siempre)
+    # Conecto todos los networks elements a la red publica (esto podría no ser asi siempre)
     for i in dict_networks.keys():
         if i != "public1":
-            connections += '  - { <<: *connection, endpoints: ["'+ i + '-switch", "public1-router"] }\n' #Harcoded the name of external net
+            connections += '  - { <<: *connection, endpoints: ["'+ i + '-NE", "public1-router"] }\n' #Harcoded the name of external net
     return connections
 
 
