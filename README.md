@@ -16,7 +16,7 @@ Generator has two four parts atm:
  
  and then we can execute 
  
- ```./create_doc.sh``` 
+ ``` sudo python3 ./resource_parser.py -i openstack_example.json``` 
  
  to build the new .docx documentation based on the terraform .tfstate that would be saved on tests/demo.docx
  
