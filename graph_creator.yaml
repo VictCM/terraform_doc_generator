@@ -2,7 +2,7 @@
 diagram:
   fill: "linen"
   rows: 3 #7
-  columns: 6 #5
+  columns: 8 #5
   gridLines: true
   gridPaddingInner: .2
   groupPadding: .8
@@ -39,9 +39,9 @@ icons:
   k8s-master: {<<: *servers, x: 0, y: 0}
   k8s-node-1: {<<: *servers, x: 0, y: 1}
   k8s-node-0: {<<: *servers, x: 0, y: 2}
-  public1-router: {<<: *cisco, x: 5, y: 1, icon: "router"}
-  cluster-network-NE: {<<: *cisco, x: 3, y: 0, icon: "router"}
-  cluster2-network-NE: {<<: *cisco, x: 3, y: 1, icon: "router"}
+  cluster-network-NE: {<<: *cisco, x: 4, y: 0, icon: "router"}
+  public1-router: {<<: *cisco, x: 7, y: 1, icon: "router"}
+  cluster2-network-NE: {<<: *cisco, x: 4, y: 1, icon: "router"}
 
 connection: &connection
   stroke: "black"
@@ -49,8 +49,8 @@ connection: &connection
   color: "black"
 connections:
   # Aqui añado las distintas conexiones. Por ahora solo van de nodos a routers intermedios y de estos al exterior
-  - { <<: *connection, endpoints: ["k8s-master:192.168.166.3", "cluster2-network-NE"] }
   - { <<: *connection, endpoints: ["k8s-master:192.168.187.4", "cluster-network-NE"] }
+  - { <<: *connection, endpoints: ["k8s-master:192.168.166.3", "cluster2-network-NE"] }
   - { <<: *connection, endpoints: ["k8s-node-1:192.168.187.20", "cluster-network-NE"] }
   - { <<: *connection, endpoints: ["k8s-node-0:192.168.187.28", "cluster-network-NE"] }
   - { <<: *connection, endpoints: ["cluster-network-NE", "public1-router"] }

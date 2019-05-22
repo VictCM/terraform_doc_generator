@@ -15,7 +15,7 @@ def calculate_size():
     
     # Ahora, del eje x
     global size_x
-    size_x = 0
+    size_x = 1
     for i in range(len(levels)):
         if len(levels[i]):
             size_x += 1
