@@ -15,7 +15,7 @@ def calculate_size():
     
     # Ahora, del eje x
     global size_x
-    size_x = 1
+    size_x = 0
     for i in range(len(levels)):
         if len(levels[i]):
             size_x += 1
@@ -78,7 +78,7 @@ def graph_file_gen(nodes, networks, all_levels):
 diagram:
   fill: "linen"
   rows: '''+ str(size_y)  + ''' #7
-  columns: ''' + str(size_x) + ''' #5
+  columns: ''' + str(size_x + 1) + ''' #5
   gridLines: true
   gridPaddingInner: .2
   groupPadding: .8
