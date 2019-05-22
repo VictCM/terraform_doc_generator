@@ -9,6 +9,7 @@ diagram:
 title:
   type: "bar"
   text: "First Example"
+  author: "Victor CM"
   color: black
   logoFill: none
   fill: none
@@ -19,8 +20,8 @@ defaults: &defaults
   fill: "#555555"
   iconFamily: "azureEnterprise"
   iconFill: "black"
-  iconStroke: "none"
-  stroke: "none"
+  iconStroke: "black"
+  stroke: "#004BAF"
 cisco: &cisco
   color: "#004BAF"
   fill: "white"
@@ -39,8 +40,8 @@ icons:
   k8s-master: {<<: *servers, x: 0, y: 1}
   k8s-node-1: {<<: *servers, x: 0, y: 2}
   cluster2-network-NE: {<<: *cisco, x: 2, y: 0, icon: "router"}
-  cluster-network-NE: {<<: *cisco, x: 2, y: 1, icon: "router"}
   public1-router: {<<: *cisco, x: 4, y: 1, icon: "router"}
+  cluster-network-NE: {<<: *cisco, x: 2, y: 1, icon: "router"}
 
 connection: &connection
   stroke: "black"

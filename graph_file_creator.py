@@ -81,6 +81,7 @@ diagram:
 title:
   type: "bar"
   text: "First Example"
+  author: "Victor CM"
   color: black
   logoFill: none
   fill: none
@@ -91,8 +92,8 @@ defaults: &defaults
   fill: "#555555"
   iconFamily: "azureEnterprise"
   iconFill: "black"
-  iconStroke: "none"
-  stroke: "none"
+  iconStroke: "black"
+  stroke: "#004BAF"
 cisco: &cisco
   color: "#004BAF"
   fill: "white"
