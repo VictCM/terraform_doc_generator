@@ -52,38 +52,12 @@ def add_resources_info(dict_nodes, dict_networks):
         p.add_run(str(i) + ''': ''').bold = True
 
         # Busco entre las posibles opciones de despliegue que tenemos en el equipo cual es la que estamos desplegando
-        found_hng=i.find("hng")
-        found_pw=i.find("pw")
-        found_ear=i.find("ear")
-        found_uni=i.find("uni")
-        num_HNG, num_vEar, num_UniManager = (0,)*3
-        if (found_hng != -1) or (found_pw != -1):
-            num_HNG += 1
-            p.add_run('Instancia del HNG de Parallel Wireless. Gateway rural virtualizado elegido por Internet para Todos. ')
-            p.add_run('Interconecta la red de acceso con el core del MNO ofreciendo independencia entre IpT y la red del MNO. ')
-            p.add_run('También actúa como elemento de seguridad entre la RAN y el core, y sirve como punto de control para IpT. ')
-            p.add_run('Facilita la conexión con terceras partes agregando las interfaces RAN 2G/3G/4G hacia el core. ')
-            p.add_run('''Se han levantado ''' + str(num_HNG)+ ''' instancia(s), según un sabor e imagen específicas y contará con ''')
-            p.add_run(str(len(dict_nodes[i])))
-            p.add_run(' interfaces de red, para los distintos tipos de tráfico y necesidades. La(s) interface(s) de red tiene(n) acceso:\n')
-            for j in dict_nodes[i].keys():
-                p.add_run('''       - ''' + j + ''': Con IP ''' + dict_nodes[i][j] + '''.\n''')
-        elif (found_ear != -1):
-            num_vEar += 1
-            p.add_run('Instancia del Network Ear de IpT. Solución software del equipo de Internet para Todos ')
-            p.add_run('para el monitoreo y generación de alarmas dentro de la red. ')
-            p.add_run('''Se han levantado ''' + str(num_vEar)+ ''' instancia(s), según un sabor e imagen específicas y contará con ''')
-            p.add_run(str(len(dict_nodes[i])))
-            p.add_run(' interfaces de red, con al menos una de ellas conectada a un elemento de red (HNG, en este caso). La(s) interface(s) de red tiene(n) acceso:\n')
-            for j in dict_nodes[i].keys():
-                p.add_run('''       - ''' + j + ''': Con IP ''' + dict_nodes[i][j] + '''.\n''')
-        elif (found_uni):
-            num_UniManager += 1
-            p.add_run('Instancia del Unimanager. Es un Element Management System (EMS) para las antenas y HNGs de Parallel Wireless. ')
-            p.add_run('Ofrece un Interfaz de Usuario Gráfica (GUI) a los operadores para el monitoreo y manejo de los elementos de red.')
-            p.add_run('''Se han levantado ''' + str(num_UniManager)+ ''' instancia(s), según un sabor e imagen específicas y contará con ''')
-            p.add_run(str(len(dict_nodes[i])))
-            p.add_run(' interfaces de red. La(s) interface(s) de red tiene(n) acceso:\n')
+        found_node=i.find("node")
+        num_node=0
+        if (found_node != -1):
+            num_node += 1
+            p.add_run('Nodo encontrado. Añadir descripción de la VNF si procede')
+            p.add_run(' La(s) interface(s) de red tiene(n) acceso:\n')
             for j in dict_nodes[i].keys():
                 p.add_run('''       - ''' + j + ''': Con IP ''' + dict_nodes[i][j] + '''.\n''')
         else:
