@@ -26,12 +26,12 @@ def insert_icons():
     icons = ''
     # Añado los nodos
     x = 0
-    y = 2
+    y = 0
     for i in dict_nodes.keys():
         icons += '  ' + i + ': {<<: *servers, x: ' + str(x) + ', y: ' + str(y) + '}\n'
         y += 1
     # Creo un network element para conectar cada red
-    x = 2
+    x = int(size_x/2)
     y = 0
     for i in dict_networks.keys():
         if i != "public1":
