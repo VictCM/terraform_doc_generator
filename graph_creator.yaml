@@ -1,0 +1,56 @@
+
+diagram:
+  fill: "linen"
+  rows: 3 #7
+  columns: 5 #5
+  gridLines: false
+  gridPaddingInner: .2
+  groupPadding: .8
+title:
+  type: "bar"
+  text: "First Example"
+  color: black
+  logoFill: none
+  fill: none
+  stroke: "black"
+
+defaults: &defaults
+  color: "white"
+  fill: "#555555"
+  iconFamily: "azureEnterprise"
+  iconFill: "white"
+  iconStroke: "none"
+  stroke: "none"
+cisco: &cisco
+  color: "#004BAF"
+  fill: "white"
+  iconFamily: "cisco"
+  iconFill: "#004BAF"
+  iconStrokeWidth: .25
+  stroke: "#004BAF"
+  preserveWhite: true
+servers: &servers
+  <<: *defaults
+  fill: "#58585B"
+  icon: "webserver"
+icons:
+  # Aqui tengo que añadir los nodos. Algoritmo basico creado para que ordene según el número de nodos y nets
+  k8s-node-1: {<<: *servers, x: 0, y: 2}
+  k8s-node-0: {<<: *servers, x: 0, y: 4}
+  k8s-master: {<<: *servers, x: 0, y: 6}
+  cluster2-network-switch: {<<: *cisco, x: 2, y: 0, icon: "nexus5000"}
+  cluster-network-switch: {<<: *cisco, x: 2, y: 1, icon: "nexus5000"}
+  public1-router: {<<: *cisco, x: 4, y: 1, icon: "router"}
+
+connection: &connection
+  stroke: "black"
+  strokeDashArray: "0,0"
+  color: "black"
+connections:
+  # Aqui añado las distintas conexiones. Por ahora solo van de nodos a routers intermedios y de estos al exterior
+  - { <<: *connection, endpoints: ["k8s-node-1:192.168.187.20", "cluster-network-switch"] }
+  - { <<: *connection, endpoints: ["k8s-node-0:192.168.187.28", "cluster-network-switch"] }
+  - { <<: *connection, endpoints: ["k8s-master:192.168.166.3", "cluster2-network-switch"] }
+  - { <<: *connection, endpoints: ["k8s-master:192.168.187.4", "cluster-network-switch"] }
+  - { <<: *connection, endpoints: ["cluster2-network-switch", "public1-router"] }
+  - { <<: *connection, endpoints: ["cluster-network-switch", "public1-router"] }

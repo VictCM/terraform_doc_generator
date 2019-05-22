@@ -1,0 +1,340 @@
+{
+    "version": 3,
+    "terraform_version": "0.11.10",
+    "serial": 1,
+    "lineage": "f2b59fef-18a3-4024-3dbb-ad7df7a5c72d",
+    "modules": [
+        {
+            "path": [
+                "root"
+            ],
+            "outputs": {},
+            "resources": {
+                "null_resource.install_dep_master": {
+                    "type": "null_resource",
+                    "depends_on": [
+                        "openstack_compute_floatingip_associate_v2.k8s-master-fip-associate",
+                        "openstack_compute_floatingip_v2.master-ip"
+                    ],
+                    "primary": {
+                        "id": "809885129944498367",
+                        "attributes": {
+                            "id": "809885129944498367"
+                        },
+                        "meta": {},
+                        "tainted": true
+                    },
+                    "deposed": [],
+                    "provider": "provider.null"
+                },
+                "null_resource.install_dep_nodes.0": {
+                    "type": "null_resource",
+                    "depends_on": [
+                        "openstack_compute_floatingip_associate_v2.k8s-nodes-fip-associate",
+                        "openstack_compute_floatingip_v2.node-ip.*"
+                    ],
+                    "primary": {
+                        "id": "8819781602167609692",
+                        "attributes": {
+                            "id": "8819781602167609692"
+                        },
+                        "meta": {},
+                        "tainted": true
+                    },
+                    "deposed": [],
+                    "provider": "provider.null"
+                },
+                "null_resource.install_dep_nodes.1": {
+                    "type": "null_resource",
+                    "depends_on": [
+                        "openstack_compute_floatingip_associate_v2.k8s-nodes-fip-associate",
+                        "openstack_compute_floatingip_v2.node-ip.*"
+                    ],
+                    "primary": {
+                        "id": "2647877915630342666",
+                        "attributes": {
+                            "id": "2647877915630342666"
+                        },
+                        "meta": {},
+                        "tainted": true
+                    },
+                    "deposed": [],
+                    "provider": "provider.null"
+                },
+                "openstack_compute_floatingip_associate_v2.k8s-master-fip-associate": {
+                    "type": "openstack_compute_floatingip_associate_v2",
+                    "depends_on": [
+                        "openstack_compute_floatingip_v2.master-ip",
+                        "openstack_compute_instance_v2.k8s-master"
+                    ],
+                    "primary": {
+                        "id": "192.168.50.161/8356f5c1-4e32-45e2-957a-a42f6700dca3/",
+                        "attributes": {
+                            "fixed_ip": "",
+                            "floating_ip": "192.168.50.161",
+                            "id": "192.168.50.161/8356f5c1-4e32-45e2-957a-a42f6700dca3/",
+                            "instance_id": "8356f5c1-4e32-45e2-957a-a42f6700dca3",
+                            "region": "",
+                            "wait_until_associated": "true"
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "create": 600000000000
+                            }
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.openstack"
+                },
+                "openstack_compute_floatingip_associate_v2.k8s-nodes-fip-associate.0": {
+                    "type": "openstack_compute_floatingip_associate_v2",
+                    "depends_on": [
+                        "openstack_compute_floatingip_v2.node-ip.*",
+                        "openstack_compute_instance_v2.k8s-node.*"
+                    ],
+                    "primary": {
+                        "id": "192.168.50.158/b31a9a2f-aba1-4c63-acf6-8e09c394b4b9/",
+                        "attributes": {
+                            "fixed_ip": "",
+                            "floating_ip": "192.168.50.158",
+                            "id": "192.168.50.158/b31a9a2f-aba1-4c63-acf6-8e09c394b4b9/",
+                            "instance_id": "b31a9a2f-aba1-4c63-acf6-8e09c394b4b9",
+                            "region": "",
+                            "wait_until_associated": "true"
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "create": 600000000000
+                            }
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.openstack"
+                },
+                "openstack_compute_floatingip_associate_v2.k8s-nodes-fip-associate.1": {
+                    "type": "openstack_compute_floatingip_associate_v2",
+                    "depends_on": [
+                        "openstack_compute_floatingip_v2.node-ip.*",
+                        "openstack_compute_instance_v2.k8s-node.*"
+                    ],
+                    "primary": {
+                        "id": "192.168.50.159/d6b3b3b0-3fe8-4b0b-b8dc-d75612708798/",
+                        "attributes": {
+                            "fixed_ip": "",
+                            "floating_ip": "192.168.50.159",
+                            "id": "192.168.50.159/d6b3b3b0-3fe8-4b0b-b8dc-d75612708798/",
+                            "instance_id": "d6b3b3b0-3fe8-4b0b-b8dc-d75612708798",
+                            "region": "",
+                            "wait_until_associated": "true"
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "create": 600000000000
+                            }
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.openstack"
+                },
+                "openstack_compute_floatingip_v2.master-ip": {
+                    "type": "openstack_compute_floatingip_v2",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "e7eeb668-e938-4f6a-9642-90f6a2a32db3",
+                        "attributes": {
+                            "address": "192.168.50.161",
+                            "fixed_ip": "",
+                            "id": "e7eeb668-e938-4f6a-9642-90f6a2a32db3",
+                            "instance_id": "",
+                            "pool": "public1",
+                            "region": ""
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.openstack"
+                },
+                "openstack_compute_floatingip_v2.node-ip.0": {
+                    "type": "openstack_compute_floatingip_v2",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "505d3ff5-e2c4-4855-a60c-9bcafba9d353",
+                        "attributes": {
+                            "address": "192.168.50.158",
+                            "fixed_ip": "",
+                            "id": "505d3ff5-e2c4-4855-a60c-9bcafba9d353",
+                            "instance_id": "",
+                            "pool": "public1",
+                            "region": ""
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.openstack"
+                },
+                "openstack_compute_floatingip_v2.node-ip.1": {
+                    "type": "openstack_compute_floatingip_v2",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "57428189-cbe9-4a7c-9253-01529fb3a29e",
+                        "attributes": {
+                            "address": "192.168.50.159",
+                            "fixed_ip": "",
+                            "id": "57428189-cbe9-4a7c-9253-01529fb3a29e",
+                            "instance_id": "",
+                            "pool": "public1",
+                            "region": ""
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.openstack"
+                },
+                "openstack_compute_instance_v2.k8s-master": {
+                    "type": "openstack_compute_instance_v2",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "8356f5c1-4e32-45e2-957a-a42f6700dca3",
+                        "attributes": {
+                            "access_ip_v4": "192.168.187.4",
+                            "access_ip_v6": "",
+                            "all_metadata.%": "0",
+                            "availability_zone": "nova",
+                            "flavor_id": "3",
+                            "flavor_name": "m1.medium",
+                            "force_delete": "false",
+                            "id": "8356f5c1-4e32-45e2-957a-a42f6700dca3",
+                            "image_id": "759c35a6-ee93-4ac2-81e4-25336c5df8da",
+                            "image_name": "vubuntu16.04",
+                            "key_pair": "iptnuc7",
+                            "name": "k8s-master",
+                            "network.#": "2",
+                            "network.0.access_network": "false",
+                            "network.0.fixed_ip_v4": "192.168.187.4",
+                            "network.0.fixed_ip_v6": "",
+                            "network.0.floating_ip": "",
+                            "network.0.mac": "fa:16:3e:cc:f2:7e",
+                            "network.0.name": "cluster-network",
+                            "network.0.port": "",
+                            "network.0.uuid": "ce482916-b7a0-44e1-aa4f-bbbbfd20700c",
+                            "power_state": "active",
+                            "region": "",
+                            "security_groups.#": "1",
+                            "security_groups.3610759774": "cluster-network-secgroup",
+                            "stop_before_destroy": "false",
+                            "network.1.fixed_ip_v4": "192.168.166.3",
+                            "network.1.name": "cluster2-network"
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "create": 1800000000000,
+                                "delete": 1800000000000,
+                                "update": 1800000000000
+                            }
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.openstack"
+                },
+                "openstack_compute_instance_v2.k8s-node.0": {
+                    "type": "openstack_compute_instance_v2",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "b31a9a2f-aba1-4c63-acf6-8e09c394b4b9",
+                        "attributes": {
+                            "access_ip_v4": "192.168.187.28",
+                            "access_ip_v6": "",
+                            "all_metadata.%": "0",
+                            "availability_zone": "nova",
+                            "flavor_id": "3",
+                            "flavor_name": "m1.medium",
+                            "force_delete": "false",
+                            "id": "b31a9a2f-aba1-4c63-acf6-8e09c394b4b9",
+                            "image_id": "759c35a6-ee93-4ac2-81e4-25336c5df8da",
+                            "image_name": "vubuntu16.04",
+                            "key_pair": "iptnuc7",
+                            "name": "k8s-node-0",
+                            "network.#": "1",
+                            "network.0.access_network": "false",
+                            "network.0.fixed_ip_v4": "192.168.187.28",
+                            "network.0.fixed_ip_v6": "",
+                            "network.0.floating_ip": "",
+                            "network.0.mac": "fa:16:3e:79:5c:4a",
+                            "network.0.name": "cluster-network",
+                            "network.0.port": "",
+                            "network.0.uuid": "ce482916-b7a0-44e1-aa4f-bbbbfd20700c",
+                            "power_state": "active",
+                            "region": "",
+                            "security_groups.#": "1",
+                            "security_groups.3610759774": "cluster-network-secgroup",
+                            "stop_before_destroy": "false"
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "create": 1800000000000,
+                                "delete": 1800000000000,
+                                "update": 1800000000000
+                            }
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.openstack"
+                },
+                "openstack_compute_instance_v2.k8s-node.1": {
+                    "type": "openstack_compute_instance_v2",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "d6b3b3b0-3fe8-4b0b-b8dc-d75612708798",
+                        "attributes": {
+                            "access_ip_v4": "192.168.187.20",
+                            "access_ip_v6": "",
+                            "all_metadata.%": "0",
+                            "availability_zone": "nova",
+                            "flavor_id": "3",
+                            "flavor_name": "m1.medium",
+                            "force_delete": "false",
+                            "id": "d6b3b3b0-3fe8-4b0b-b8dc-d75612708798",
+                            "image_id": "759c35a6-ee93-4ac2-81e4-25336c5df8da",
+                            "image_name": "vubuntu16.04",
+                            "key_pair": "iptnuc7",
+                            "name": "k8s-node-1",
+                            "network.#": "1",
+                            "network.0.access_network": "false",
+                            "network.0.fixed_ip_v4": "192.168.187.20",
+                            "network.0.fixed_ip_v6": "",
+                            "network.0.floating_ip": "",
+                            "network.0.mac": "fa:16:3e:81:0f:04",
+                            "network.0.name": "cluster-network",
+                            "network.0.port": "",
+                            "network.0.uuid": "ce482916-b7a0-44e1-aa4f-bbbbfd20700c",
+                            "power_state": "active",
+                            "region": "",
+                            "security_groups.#": "1",
+                            "security_groups.3610759774": "cluster-network-secgroup",
+                            "stop_before_destroy": "false"
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "create": 1800000000000,
+                                "delete": 1800000000000,
+                                "update": 1800000000000
+                            }
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.openstack"
+                }
+            },
+            "depends_on": []
+        }
+    ]
+}
