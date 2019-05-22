@@ -67,7 +67,6 @@ def graph_file_gen(nodes, networks, all_levels):
     
     calculate_size()
     if os.path.exists("graph_creator.yaml"):
-        print("existe el archivo")
         os.remove("graph_creator.yaml")
     f= open("graph_creator.yaml","w+") # Creo el fichero
 
@@ -88,10 +87,10 @@ title:
   stroke: "black"
 
 defaults: &defaults
-  color: "white"
+  color: "black"
   fill: "#555555"
   iconFamily: "azureEnterprise"
-  iconFill: "white"
+  iconFill: "black"
   iconStroke: "none"
   stroke: "none"
 cisco: &cisco
@@ -104,7 +103,7 @@ cisco: &cisco
   preserveWhite: true
 servers: &servers
   <<: *defaults
-  fill: "#58585B"
+  fill: "white"
   icon: "webserver"
 icons:
   # Aqui tengo que añadir los nodos. Algoritmo basico creado para que ordene según el número de nodos y nets

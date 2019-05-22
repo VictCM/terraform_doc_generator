@@ -52,11 +52,11 @@ def add_resources_info(dict_nodes, dict_networks):
         p.add_run(str(i) + ''': ''').bold = True
 
         # Busco entre las posibles opciones de despliegue que tenemos en el equipo cual es la que estamos desplegando
-        found_node=i.find("node")
+        found_node=i.find("k8s")
         num_node=0
         if (found_node != -1):
             num_node += 1
-            p.add_run('Nodo encontrado. Añadir descripción de la VNF si procede')
+            p.add_run('Nodo k8s encontrado. Añadir descripción de la VNF si procede.')
             p.add_run(' La(s) interface(s) de red tiene(n) acceso:\n')
             for j in dict_nodes[i].keys():
                 p.add_run('''       - ''' + j + ''': Con IP ''' + dict_nodes[i][j] + '''.\n''')
